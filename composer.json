@@ -1,0 +1,29 @@
+{
+  "name": "testtask/entitieslist",
+  "description": "Test Task",
+  "license": "MIT",
+  "type": "yii2-extension",
+  "authors": [
+    {
+      "name": "Gaspar Karakulyan",
+      "email": "g.karakulyan@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php":">=5.4.0",
+    "yiisoft/yii2": ">=2.0.5"
+  },
+  "require-dev": {
+    "yiisoft/yii2-codeception": "*",
+    "yiisoft/yii2-debug": "*",
+    "yiisoft/yii2-gii": "*",
+    "yiisoft/yii2-faker": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "testtask\\entitieslist\\": ""
+    }
+  }
+}
