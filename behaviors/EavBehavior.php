@@ -1,8 +1,8 @@
 <?php
 namespace testtask\entitieslist\behaviors;
 
-use app\components\EavModel;
-use app\models\EavAttribute;
+use testtask\entitieslist\components\EavModel;
+use testtask\entitieslist\models\EavAttribute;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
 

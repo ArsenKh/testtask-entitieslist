@@ -14,7 +14,7 @@ use Yii;
  *
  * @property EavAttribute[] $eavAttributes
  * @property EavAttributeValue[] $eavAttributeValues
- * @property EntityProperties[] $entityProperties
+ * @property StackOfEntities[] $stackOfEntities
  */
 class Entity extends \yii\db\ActiveRecord
 {
@@ -71,9 +71,9 @@ class Entity extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEntityProperties()
+    public function getStackOfEntities()
     {
-        return $this->hasMany(EntityProperties::className(), ['entity_id' => 'id']);
+        return $this->hasMany(StackOfEntities::className(), ['entity_id' => 'id']);
     }
 
     /**
@@ -96,25 +96,13 @@ class Entity extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function behaviors() {
-        /*
-        return [
-            'properties' => [
-                'class' => \app\behaviors\EavBehavior::className(),
-                'primaryKey' => 'id', // id related to model
-                'tableName' => 'entity_properties', // table name for store attributes
-                'propertiesKey' => 'entity_id', // id related to properties model
-                'propertiesName' => 'name', // Properties field with attributes name
-                'propertiesValue' => 'value', // Properties field with attributes value
-
-            ],
-        ];
-        */
+    public function behaviors()
+    {
         return [
             'eav' => [
-                'class' => \app\behaviors\EavBehavior::className(),
-                'valueClass' => \app\models\EavAttributeValue::className(),
-                'attributeClass' => \app\models\EavAttribute::className(),
+                'class' => \testtask\entitieslist\behaviors\EavBehavior::className(),
+                'valueClass' => \testtask\entitieslist\models\EavAttributeValue::className(),
+                'attributeClass' => \testtask\entitieslist\models\EavAttribute::className(),
             ]
         ];
     }

@@ -17,7 +17,6 @@ class AttributeHandler
     public $attributeModel;
     
     public $nameField = 'name';
-    public $labelField = 'label';
 
     /**
      * @param EavModel $owner
@@ -43,7 +42,7 @@ class AttributeHandler
     public function init()
     {
         $this->valueHandler = Yii::createObject([
-            'class' => '\\app\\components\\ValueHandler',
+            'class' => '\\testtask\\entitieslist\\components\\ValueHandler',
             'attributeHandler' => $this,
         ]);
     }
@@ -54,10 +53,5 @@ class AttributeHandler
     public function getAttributeName()
     {
         return (string)($this->attributeModel->{$this->nameField});
-    }
-
-    public function getAttributeLabel()
-    {
-        return (string)($this->attributeModel->{$this->labelField});
     }
 }
