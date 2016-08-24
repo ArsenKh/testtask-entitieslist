@@ -37,24 +37,28 @@ class GenerateController extends Controller
             $rand_key =$entities[$rand_key];
             $rawData = self::$rawData[$rand_key];
 
+            $randCreatedAt = strtotime("-".rand(0, 30)." day");
+            $randReleasedAt = strtotime("+".rand(5, 10)." day", $randCreatedAt);
+            /// * for events
+            $randEndedAt = strtotime("+".rand(1,7)." day", $randReleasedAt);
+
             switch($rand_key) {
                 case 'film':
                     $model = new \testtask\entitieslist\models\EntityFilm();
-                    $model->name = "Film #".$num;
-                    $model->created_at = date("Y-m-d H:i:s");
+                    $model->name = "Some Film Entity #".$num;
                     break;
                 case 'music':
                     $model = new \testtask\entitieslist\models\EntityMusic();
-                    $model->name = "Music #".$num;
-                    $model->created_at = date("Y-m-d H:i:s");
+                    $model->name = "Some Music Entity #".$num;
                     break;
                 case 'event':
                     $model = new \testtask\entitieslist\models\EntityEvent();
-                    $model->name = "Event #".$num;
-                    $model->created_at = date("Y-m-d H:i:s");
-                    $model->defineEavAttribute('end_date', date("Y-m-d H:i:s", strtotime("+".$num." day")));
+                    $model->name = "Some Event Entity #".$num;
+                    $model->defineEavAttribute('ended_at', date("Y-m-d H:i:s", $randEndedAt));
                     break;
             }
+
+            $model->released_at = date("Y-m-d H:i:s", $randReleasedAt);
 
             foreach($rawData as $attribute => $value) {
                 $model->defineEavAttribute($attribute, sprintf($value, $num));
@@ -64,6 +68,7 @@ class GenerateController extends Controller
                 $status = $this->ansiFormat('OK', Console::FG_GREEN);
                 $stackModel = new \testtask\entitieslist\models\StackOfEntities();
                 $stackModel->entity_id = $model->id;
+                $stackModel->created_at = date("Y-m-d H:i:s", $randCreatedAt);
                 if(!$stackModel->save()) {
                     $status = $this->ansiFormat('WARNING', Console::FG_YELLOW);
                 }

@@ -9,8 +9,8 @@ use Yii;
  *
  * @property string $id
  * @property string $name
- * @property string $created_at
  * @property string $type
+ * @property string $released_at
  *
  * @property EavAttribute[] $eavAttributes
  * @property EavAttributeValue[] $eavAttributeValues
@@ -33,7 +33,7 @@ class Entity extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['created_at'], 'safe'],
+            [['released_at'], 'safe'],
             [['type'], 'string'],
             [['name'], 'string', 'max' => 100],
         ];
@@ -47,7 +47,7 @@ class Entity extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'created_at' => 'Created At',
+            'released_at' => 'Released At',
             'type' => 'Type',
         ];
     }

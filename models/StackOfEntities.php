@@ -9,6 +9,7 @@ use Yii;
  *
  * @property string $id
  * @property string $entity_id
+ * @property string $created_at
  *
  * @property Entity $entity
  */
@@ -30,6 +31,7 @@ class StackOfEntities extends \yii\db\ActiveRecord
         return [
             [['entity_id'], 'required'],
             [['entity_id'], 'integer'],
+            [['created_at'], 'safe'],
             [['entity_id'], 'exist', 'skipOnError' => true, 'targetClass' => Entity::className(), 'targetAttribute' => ['entity_id' => 'id']],
         ];
     }
@@ -42,6 +44,7 @@ class StackOfEntities extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'entity_id' => 'Entity ID',
+            'created_at' => 'Created At',
         ];
     }
 

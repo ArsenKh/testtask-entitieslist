@@ -44,10 +44,11 @@ $this->title = 'Entities List';
             'id' => 'list-wrapper',
         ],
         'itemOptions' => [
-            'class' => 'row list-item-view-wrapper',
+            'class' => 'list-item-view-wrapper',
         ],
         'layout' => "{summary}\n{items}\n{pager}",
         'itemView' => '_entity_view',
     ]); ?>
+
     <?php Pjax::end(); ?></div>
 </div>

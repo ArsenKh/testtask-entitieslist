@@ -24,7 +24,7 @@ class DefaultController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => [
-                'id' => SORT_DESC,
+                'created_at' => SORT_DESC,
             ]
         ];
         $dataProvider->pagination = [

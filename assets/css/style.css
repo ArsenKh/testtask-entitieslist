@@ -1,9 +1,21 @@
+nav > .container,
 .content-container {
 	max-width: 900px !important;
 }
-.entity-cover {
+.list-item-view-wrapper {
+	margin-bottom: 10px;
+	background-color: #ededed;
+	border-radius: 6px;
+}
+.img-rounded-entity {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
 	max-width: 100% !important;
 }
-.list-item-view-wrapper {
-	margin: 5px 0 !important;
+@media (max-width: 767px) {
+	.img-rounded-entity {
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+		border-bottom-left-radius: 0;
+	}
 }

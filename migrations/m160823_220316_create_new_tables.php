@@ -33,13 +33,14 @@ class m160823_220316_create_new_tables extends Migration
         $this->createTable($this->tables['entity'], [
             'id' => Schema::TYPE_PK,
             'name' => Schema::TYPE_STRING,
-            'created_at' => Schema::TYPE_TIMESTAMP,
             'type' => Schema::TYPE_STRING,
+            'released_at' => Schema::TYPE_TIMESTAMP,
         ], $options);
 
         $this->createTable($this->tables['list'], [
             'id' => Schema::TYPE_PK,
             'entity_id' => Schema::TYPE_INTEGER,
+            'created_at' => Schema::TYPE_TIMESTAMP,
         ], $options);
 
         $this->createTable($this->tables['attribute'], [

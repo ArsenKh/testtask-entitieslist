@@ -5,21 +5,23 @@ namespace testtask\entitieslist\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use testtask\entitieslist\models\Entity;
+use testtask\entitieslist\models\StackOfEntities;
 
 /**
  * EntitySearch represents the model behind the search form about `app\models\Entity`.
  */
-class EntitySearch extends Entity
+class EntitySearch extends StackOfEntities
 {
+    public $name;
+    public $type;
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'created_at', 'type'], 'safe'],
+            [['name', 'type'], 'safe'],
         ];
     }
 
@@ -41,7 +43,10 @@ class EntitySearch extends Entity
      */
     public function search($params)
     {
-        $query = Entity::find();
+        $query = StackOfEntities::find();
+
+        // join relation
+        $query->joinWith(['entity']);
 
         // add conditions that should always apply here
 
@@ -57,14 +62,8 @@ class EntitySearch extends Entity
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'created_at' => $this->created_at,
-        ]);
-
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'type', $this->type]);
+        $query->andFilterWhere(['like', 'entitieslist_entity.name', $this->name])
+            ->andFilterWhere(['like', 'entitieslist_entity.type', $this->type]);
 
         return $dataProvider;
     }
