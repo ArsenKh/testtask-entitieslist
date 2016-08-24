@@ -5,7 +5,7 @@ namespace testtask\entitieslist\models;
 use Yii;
 
 /**
- * This is the model class for table "eav_attribute_value".
+ * This is the model class for table "entitieslist_eav_attribute_value".
  *
  * @property string $id
  * @property string $entity_id
@@ -22,7 +22,7 @@ class EavAttributeValue extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'eav_attribute_value';
+        return '{{%entitieslist_eav_attribute_value}}';
     }
 
     /**

@@ -1,6 +1,6 @@
 Test task
 ========
-Тестовое задание
+Create Yii2 module/application ...
 
 Install
 ========
@@ -32,4 +32,15 @@ or
 
 ``` sh
 php yii migrate/up --migrationPath=vendor/testtask/entitieslist/migrations
+```
+
+Configure
+========
+Add to web & console configs
+
+``` php
+$config['bootstrap'][] = 'entitieslist';
+$config['modules']['entitieslist'] = [
+    'class' => 'testtask\entitieslist\Module',
+];
 ```

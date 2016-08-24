@@ -5,7 +5,7 @@ namespace testtask\entitieslist\models;
 use Yii;
 
 /**
- * This is the model class for table "entity".
+ * This is the model class for table "entitieslist_entity".
  *
  * @property string $id
  * @property string $name
@@ -23,7 +23,7 @@ class Entity extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'entity';
+        return '{{%entitieslist_entity}}';
     }
 
     /**

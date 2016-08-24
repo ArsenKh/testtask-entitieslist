@@ -6,7 +6,7 @@ use Yii;
 use testtask\entitieslist\components\EntityQuery;
 
 /**
- * This is the model class for table "entity".
+ * This is the model class for table "entitieslist_entity".
  */
 class EntityMusic extends Entity
 {
