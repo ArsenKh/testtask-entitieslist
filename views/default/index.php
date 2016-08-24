@@ -12,25 +12,42 @@ $this->title = 'Entities List';
 ?>
 <div class="default-index">
 
-	<div class="page-header">
-		<h1>Entities List, <small>test task ...</small></h1>
-	</div>
+    <div class="page-header">
+        <h1>Entities List, <small>test task ...</small></h1>
+    </div>
 
-	<?php echo $this->render('_search', ['model' => $searchModel]); ?>
+	<?php
+	$this->registerJs(
+		'$("document").ready(function(){
+            $("#entity_search").on("pjax:end", function() {
+            $.pjax.reload({container:"#entities_list_view"});
+        });
+    });'
+	);
+	?>
+	<?php Pjax::begin(['id' => 'entity_search']) ?>
+	<?= $this->render('_search', ['model' => $searchModel]); ?>
+	<?php Pjax::end(); ?>
 
-	<?php Pjax::begin(); ?>
-	<?= ListView::widget([
-		'dataProvider' => $dataProvider,
-		'options' => [
-			'tag' => 'div',
-			'class' => 'list-wrapper',
-			'id' => 'list-wrapper',
-		],
-		'itemOptions' => [
-			'class' => 'row list-item-view-wrapper',
-		],
-		'layout' => "{summary}\n{items}\n{pager}",
-		'itemView' => '_entity_view',
-	]); ?>
-	<?php Pjax::end(); ?></div>
+    <?php Pjax::begin([
+        'enablePushState' => true,
+        'enableReplaceState' => true,
+        'timeout' => 6000,
+    ]); ?>
+
+    <?= ListView::widget([
+	    'id' => 'entities_list_view',
+        'dataProvider' => $dataProvider,
+        'options' => [
+            'tag' => 'div',
+            'class' => 'list-wrapper',
+            'id' => 'list-wrapper',
+        ],
+        'itemOptions' => [
+            'class' => 'row list-item-view-wrapper',
+        ],
+        'layout' => "{summary}\n{items}\n{pager}",
+        'itemView' => '_entity_view',
+    ]); ?>
+    <?php Pjax::end(); ?></div>
 </div>
