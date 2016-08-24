@@ -1,0 +1,9 @@
+.content-container {
+	max-width: 900px !important;
+}
+.entity-cover {
+	max-width: 100% !important;
+}
+.list-item-view-wrapper {
+	margin: 5px 0 !important;
+}
