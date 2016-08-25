@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\jui\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\EntitySearch */
@@ -13,14 +14,24 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
-        'data-pjax' => 1
+        'options' => ['data-pjax' => 1, 'class' => 'form-inline'],
+        'id' => 'entity-search-form'
     ]); ?>
 
-    <?= $form->field($model, 'type') ?>
+    <?= $form->field($model, 'type', ['template' => '{label} {input}'])->dropDownList([
+        'film' => 'Films',
+        'music' => 'Musics',
+        'event' => 'Events',
+    ], ['prompt'=>'...']); ?>
+
+    <?= $form->field($model, 'date', ['template' => '{label} {input}'])->widget(DatePicker::classname(), [
+        'dateFormat' => 'yyyy-MM-dd',
+        'options' => ['class'=>'form-control']
+    ]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+    <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+    <?= Html::button('Reset', ['class' => 'btn btn-default', 'onclick'=>"this.form.reset()"]) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

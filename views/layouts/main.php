@@ -32,7 +32,6 @@ $asset = testtask\entitieslist\EntitieslistAsset::register($this);
 		'options' => ['class' => 'nav navbar-nav navbar-right'],
 		'items' => [
 			['label' => 'Home', 'url' => ['default/index']],
-			['label' => 'About', 'url' => ['default/about']],
 		],
 	]);
 	NavBar::end();

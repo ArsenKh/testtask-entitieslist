@@ -1,6 +1,10 @@
 nav > .container,
+footer > .container,
 .content-container {
 	max-width: 900px !important;
+}
+.list-item-view-wrapper {
+	margin-bottom: 25px;
 }
 .list-item-view-wrapper > .list-item {
 	background-color: #ededed;
@@ -11,10 +15,29 @@ nav > .container,
 	border-bottom-left-radius: 6px;
 	max-width: 100% !important;
 }
+.entity-added-date {
+	color: #8c8c8c;
+	font-style: italic;
+}
+.main-header {
+	line-height: 80px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
 @media (max-width: 767px) {
+	.entity-search {
+		text-align: left !important;
+	}
+}
+@media (max-width: 480px) {
+	.entity-title {
+		margin-top: 0;
+	}
+	.list-item-view-wrapper > .list-item {
+		background-color: transparent;
+		border-radius: 0;
+	}
 	.img-rounded-entity {
-		border-top-left-radius: 6px;
-		border-top-right-radius: 6px;
-		border-bottom-left-radius: 0;
+		border-radius: 0;
 	}
 }

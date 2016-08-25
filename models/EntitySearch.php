@@ -14,6 +14,7 @@ class EntitySearch extends StackOfEntities
 {
     public $name;
     public $type;
+    public $date;
 
     /**
      * @inheritdoc
@@ -21,7 +22,7 @@ class EntitySearch extends StackOfEntities
     public function rules()
     {
         return [
-            [['name', 'type'], 'safe'],
+            [['name', 'type', 'date'], 'safe'],
         ];
     }
 
@@ -63,7 +64,8 @@ class EntitySearch extends StackOfEntities
         }
 
         $query->andFilterWhere(['like', 'entitieslist_entity.name', $this->name])
-            ->andFilterWhere(['like', 'entitieslist_entity.type', $this->type]);
+            ->andFilterWhere(['like', 'entitieslist_entity.type', $this->type])
+            ->andFilterWhere(['like', 'created_at', $this->date]);
 
         return $dataProvider;
     }

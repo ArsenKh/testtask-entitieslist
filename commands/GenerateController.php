@@ -37,7 +37,7 @@ class GenerateController extends Controller
             $rand_key =$entities[$rand_key];
             $rawData = self::$rawData[$rand_key];
 
-            $randCreatedAt = strtotime("-".rand(0, 30)." day");
+            $randCreatedAt = strtotime("-".rand(0, 5)." day");
             $randReleasedAt = strtotime("+".rand(5, 10)." day", $randCreatedAt);
             /// * for events
             $randEndedAt = strtotime("+".rand(1,7)." day", $randReleasedAt);
