@@ -2,8 +2,7 @@ nav > .container,
 .content-container {
 	max-width: 900px !important;
 }
-.list-item-view-wrapper {
-	margin-bottom: 10px;
+.list-item-view-wrapper > .list-item {
 	background-color: #ededed;
 	border-radius: 6px;
 }

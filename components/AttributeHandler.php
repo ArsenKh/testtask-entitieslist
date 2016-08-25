@@ -42,7 +42,7 @@ class AttributeHandler
     public function init()
     {
         $this->valueHandler = Yii::createObject([
-            'class' => '\\testtask\\entitieslist\\components\\ValueHandler',
+            'class' => $this->attributeModel->getValueHandler(),
             'attributeHandler' => $this,
         ]);
     }

@@ -16,6 +16,8 @@ use Yii;
  */
 class EavAttribute extends \yii\db\ActiveRecord
 {
+    const DEFAULT_VALUE_HANDLER = "\\testtask\\entitieslist\\components\\ValueHandler";
+
     /**
      * @inheritdoc
      */
@@ -62,5 +64,13 @@ class EavAttribute extends \yii\db\ActiveRecord
     public function getEavAttributeValues()
     {
         return $this->hasMany(EavAttributeValue::className(), ['attribute_id' => 'id']);
+    }
+
+    /**
+     * @return string
+     */
+    public function getValueHandler()
+    {
+        return self::DEFAULT_VALUE_HANDLER;
     }
 }

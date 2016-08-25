@@ -19,8 +19,6 @@ class EavModel extends BaseEavModel
     public $entityModel;
     /** @var AttributeHandler[] */
     public $handlers;
-    /** @var string[] */
- #   private $attributeLabels = [];
 
     /**
      * Constructor for creating form model from entity object
@@ -52,7 +50,6 @@ class EavModel extends BaseEavModel
             $handler = AttributeHandler::load($model, $attribute);
             $key = $handler->getAttributeName();
             $value = $handler->valueHandler->getTextValue();
-            #$model->setLabel($key, $handler->getAttributeLabel());
             /// * Add define attribute
             $model->defineAttribute($key, $value);
             /// * Add handler
@@ -62,19 +59,6 @@ class EavModel extends BaseEavModel
 
         return $model;
     }
-
-    /**
-     * @inheritdoc
-     */
- #   public function getAttributeLabels()
-  #  {
-   #     return $this->attributeLabels;
-   # }
-
-    #public function setLabel($name, $label)
-    #{
-    #    $this->attributeLabels[$name] = $label;
-    #}
 
     public function save($runValidation = true, $attributes = null)
     {
@@ -114,7 +98,6 @@ class EavModel extends BaseEavModel
             $attributeClass = new $this->attributeClass;
             $attributeClass->name = $name;
             $handler = AttributeHandler::load($this, $attributeClass);
-            #$this->setLabel($name, $handler->getAttributeLabel());
             /// * Add define attribute
             $this->defineAttribute($name, $value);
             /// * Add handler
