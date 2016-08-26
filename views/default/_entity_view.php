@@ -3,7 +3,7 @@ use yii\helpers\Html;
 
 $asset = testtask\entitieslist\EntitieslistAsset::register($this);
 ?>
-<div class="list-item">
+<article class="list-item">
     <div class="row">
         <div class="col-sm-4 col-xs-5">
         <?php
@@ -39,7 +39,7 @@ $asset = testtask\entitieslist\EntitieslistAsset::register($this);
             </div>
         </div>
     </div>
-</div>
+</article>
 <div class="text-right entity-added-date">
-    <small><?= $model->getAttributeLabel('created_at'); ?> <?= $model->created_at ?> by Random:)</small>
+    <small><?= $model->getAttributeLabel('created_at'); ?> <?= $model->created_at ?> by Random</small>
 </div>

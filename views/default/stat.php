@@ -1,12 +1,12 @@
 <dl class="dl-horizontal">
-	<dt>Total</dt>
+	<dt>Total:</dt>
 	<dd><?= $total ?></dd>
-	<dt>Total today</dt>
+	<dt>Total today:</dt>
 	<dd><?= $totalToday ?></dd>
-	<dt>Films today</dt>
+	<dt>Films today:</dt>
 	<dd><?= $totalTodayFilms ?></dd>
-	<dt>Musics today</dt>
+	<dt>Musics today:</dt>
 	<dd><?= $totalTodayMusics ?></dd>
-	<dt>Events today</dt>
+	<dt>Events today:</dt>
 	<dd><?= $totalTodayEvents ?></dd>
 </dl>

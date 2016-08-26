@@ -27,12 +27,12 @@ $this->title = 'Entities List';
                         'id' => 'statistic-modal',
                         'size' => Modal::SIZE_SMALL,
                         'options' => ['class' => 'slide'],
+                        'header' => '<h4 class="modal-title">Statistic</h4>',
                         'toggleButton' => ['label' => 'Statistic', 'class' => 'btn btn-default'],
                     ]
                 );
                 Modal::end();
                 ?>
-                Please wait ...
                 <?= Html::a('Refresh', ['default/index'], ['class' => 'btn btn-default']) ?>
             </div>
         </div>
@@ -41,9 +41,6 @@ $this->title = 'Entities List';
     <?php
     $this->registerJs(
     '$("document").ready(function() {
-        $("#reset-button").on("click", function() {
-            $("#entity-search-form").trigger("reset").submit();
-        });
         $("#entity_search").on("pjax:end", function() {
             $.pjax.reload({container:"#entities_list_view_wrapper"});
         });
@@ -53,7 +50,7 @@ $this->title = 'Entities List';
             }).done(function(data) {
                 $(".modal-body").html(data);
             });
-        }).on("hide.bs.modal", function (e) {
+        }).on("hidden.bs.modal", function (e) {
             $(".modal-body").html("Please wait ...");
         });
     });'
@@ -84,7 +81,7 @@ $this->title = 'Entities List';
         'itemOptions' => [
             'class' => 'list-item-view-wrapper',
         ],
-        'layout' => "{summary}\n{items}\n{pager}",
+        'layout' => "{summary}{pager}{items}{pager}",
         'itemView' => '_entity_view',
         'pager' => ['maxButtonCount' => 5]
     ]); ?>

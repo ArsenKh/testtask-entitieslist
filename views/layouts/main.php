@@ -26,7 +26,7 @@ $asset = testtask\entitieslist\EntitieslistAsset::register($this);
 	NavBar::begin([
 		'brandLabel' => "Entities List",
 		'brandUrl' => ['default/index'],
-		'options' => ['class' => 'navbar-inverse'],
+		'options' => ['class' => 'navbar-default'],
 	]);
 	echo Nav::widget([
 		'options' => ['class' => 'nav navbar-nav navbar-right'],

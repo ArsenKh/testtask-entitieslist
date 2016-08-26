@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\jui\DatePicker;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\EntitySearch */
@@ -12,7 +13,7 @@ use yii\jui\DatePicker;
 <div class="entity-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['default/index'],
         'method' => 'get',
         'options' => ['data-pjax' => 1, 'class' => 'form-inline'],
         'id' => 'entity-search-form'
@@ -31,7 +32,7 @@ use yii\jui\DatePicker;
 
     <div class="form-group">
     <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-    <?= Html::button('Reset', ['class' => 'btn btn-default', 'id' => 'reset-button']) ?>
+    <?= Html::a('Reset', Url::to(['default/index']), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
