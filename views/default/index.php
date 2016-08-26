@@ -32,6 +32,7 @@ $this->title = 'Entities List';
                 );
                 Modal::end();
                 ?>
+                Please wait ...
                 <?= Html::a('Refresh', ['default/index'], ['class' => 'btn btn-default']) ?>
             </div>
         </div>
@@ -40,6 +41,9 @@ $this->title = 'Entities List';
     <?php
     $this->registerJs(
     '$("document").ready(function() {
+        $("#reset-button").on("click", function() {
+            $("#entity-search-form").trigger("reset").submit();
+        });
         $("#entity_search").on("pjax:end", function() {
             $.pjax.reload({container:"#entities_list_view_wrapper"});
         });

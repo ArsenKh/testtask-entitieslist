@@ -31,7 +31,7 @@ use yii\jui\DatePicker;
 
     <div class="form-group">
     <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-    <?= Html::button('Reset', ['class' => 'btn btn-default', 'onclick'=>"this.form.reset()"]) ?>
+    <?= Html::button('Reset', ['class' => 'btn btn-default', 'id' => 'reset-button']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
