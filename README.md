@@ -44,3 +44,17 @@ $config['modules']['entitieslist'] = [
     'class' => 'testtask\entitieslist\Module',
 ];
 ```
+
+Usage
+========
+For generate random data
+
+``` sh
+php yii entitieslist/generate
+```
+
+For clean generated data
+
+``` sh
+php yii entitieslist/generate/delete
+```

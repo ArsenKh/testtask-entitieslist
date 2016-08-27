@@ -78,6 +78,8 @@ class Entity extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
+     *
+     * implementation STI pattern for every type of event
      */
     public static function instantiate($row)
     {
@@ -99,6 +101,7 @@ class Entity extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
+            /// * use EAV pattern for additional/custom params
             'eav' => [
                 'class' => \testtask\entitieslist\behaviors\EavBehavior::className(),
                 'valueClass' => \testtask\entitieslist\models\EavAttributeValue::className(),

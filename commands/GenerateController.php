@@ -36,10 +36,11 @@ class GenerateController extends Controller
             $rand_key = array_rand($entities);
             $rand_key =$entities[$rand_key];
             $rawData = self::$rawData[$rand_key];
-
-            $randCreatedAt = strtotime("-".rand(0, 5)." day");
+            /// * get random events list start date
+            $randCreatedAt = strtotime("-".rand(0, 3)." day");
+            /// * get random event release date by starte date
             $randReleasedAt = strtotime("+".rand(5, 10)." day", $randCreatedAt);
-            /// * for events
+            /// * for events with end date attribute
             $randEndedAt = strtotime("+".rand(1,7)." day", $randReleasedAt);
 
             switch($rand_key) {
